@@ -1,13 +1,22 @@
 <div class="container">
   <div class="cards mt-4">
-    <div class="card mb-2">
-      <div class="card-header">
-        <% if @task.completed %>
-          <i class="far fa-check-square"></i>
-        <% else %>
-          <i class="far fa-square"></i>
-        <% end %>
-        <%=@task.title %>
+    <div class="card">
+      <div class="card-header
+                  d-flex justify-content-between
+                  align-items-center">
+        <div>
+          <% if @task.completed %>
+            <i class="far fa-check-square"></i>
+          <% else %>
+            <i class="far fa-square"></i>
+          <% end %>
+          <%=@task.title %>
+        </div>
+        <div>
+          <button type="button" class="btn btn-outline-secondary">
+            <i class="fas fa-edit"></i> Edit this task
+          </button>
+        </div>
       </div>
       <ul class="list-group list-group-flush">
         <li class="list-group-item"><%= @task.details %></li>
