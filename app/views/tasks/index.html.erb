@@ -1,13 +1,17 @@
 <div class="container">
-  <div class="cards">
-    <% @tasks.eachdo |task| %>
+  <div class="cards mt-4">
+    <% @tasks.each do |task| %>
     <div class="card mb-2">
-      <div class="card-header">
-        <%=task.title %>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item"><%= task.details %></li>
-      </ul>
+      <%= link_to task_path(task) do %>
+        <div class="card-header">
+          <% if task.completed %>
+            <i class="far fa-check-square"></i>
+          <% else %>
+            <i class="far fa-square"></i>
+          <% end %>
+          <%= task.title %>
+        </div>
+      <% end %>
     </div>
     <% end %>
   </div>
